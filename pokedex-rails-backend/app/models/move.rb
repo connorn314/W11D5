@@ -17,5 +17,8 @@ class Move < ApplicationRecord
         class_name: :PokeMove,
         dependent: :destroy
 
+    has_many :pokemon,
+        through: :poke_moves,
+        source: :pokemon
         
 end
