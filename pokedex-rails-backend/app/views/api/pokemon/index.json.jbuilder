@@ -9,4 +9,4 @@
 #   // ...
 # ]
 
-json.array! @pokemons, :id, :number, :name, :image_url, :captured
+json.array! @pokemons, :id, :number, :name, (:captured) ? :image_url : '/images/unknown.png' , :captured
