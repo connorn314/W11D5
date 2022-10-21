@@ -8,4 +8,14 @@
 #  updated_at :datetime         not null
 #
 class Move < ApplicationRecord
+
+    validates :name, uniqueness: {message: "'%{value}' is already in use"}
+    
+    has_many :poke_moves,
+        primary_key: :id,
+        foreign_key: :move_id,
+        class_name: :PokeMove,
+        dependent: :destroy
+
+        
 end
